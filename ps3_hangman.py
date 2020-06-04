@@ -2,10 +2,7 @@
 #
 
 # -----------------------------------
-# Helper code
-# You don't need to understand this helper code,
-# but you will have to know how to use the functions
-# (so be sure to read the docstrings!)
+
 
 import random
 import sys
@@ -37,7 +34,6 @@ def chooseWord(wordlist):
     """
     return random.choice(wordlist)
 
-# end of helper code
 # -----------------------------------
 
 # Load the list of words into the variable wordlist
@@ -51,7 +47,7 @@ def isWordGuessed(secretWord, lettersGuessed):
     returns: boolean, True if all the letters of secretWord are in lettersGuessed;
       False otherwise
     '''
-    # FILL IN YOUR CODE HERE...
+
     secretWord = list(dict.fromkeys(secretWord))
     correctlyGuessedLetters = ''
     for letter in secretWord:
@@ -71,7 +67,7 @@ def getGuessedWord(secretWord, lettersGuessed):
     returns: string, comprised of letters and underscores that represents
       what letters in secretWord have been guessed so far.
     '''
-    # FILL IN YOUR CODE HERE...
+
     shownLetters = ''
     for letter in lettersGuessed:
       if letter in secretWord:
@@ -94,7 +90,6 @@ def getAvailableLetters(lettersGuessed):
     returns: string, comprised of letters that represents what letters have not
       yet been guessed.
     '''
-    # FILL IN YOUR CODE HERE...
     alphabet = string.ascii_lowercase
     availableLetters = ''
     for letter in alphabet:
@@ -123,7 +118,6 @@ def hangman(secretWord):
 
     Follows the other limitations detailed in the problem write-up.
     '''
-    # FILL IN YOUR CODE HERE...
     
     print("Welcome to the game Hangman!")
     print("This word contains " + str(len(secretWord)) + " letters.")
@@ -135,7 +129,7 @@ def hangman(secretWord):
       print ("You have " + str(allowedNumberOfGuesses - numberOfMistakes) + " guesses left.")
       print ("Available letters: "+ str(len(getAvailableLetters(lettersGuessed))))
       print ("Please guess a letter: ")
-      guess = input()
+      guess = raw_input()
       guessInLowerCase = guess.lower()
       
       if guessInLowerCase in lettersGuessed:
@@ -157,11 +151,6 @@ def hangman(secretWord):
 
 secretWord = chooseWord(wordlist)
 hangman(secretWord)
-
-
-
-
-
 
 # When you've completed your hangman function, uncomment these two lines
 # and run this file to test! (hint: you might want to pick your own
